@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D1024226-2230-4E1E-B978-30D3D761726B}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>NUnit.TestData</RootNamespace>
+    <AssemblyName>nunitlite.testdata</AssemblyName>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <TargetFrameworkVersion>v2.3</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\Debug\android\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;__MOBILE__;__ANDROID__;NUNITLITE;ANDROID;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\Release\android\</OutputPath>
+    <DefineConstants>TRACE;__MOBILE__;__ANDROID__;NUNITLITE;ANDROID;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="Mono.Android" />
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\framework\nunitlite-android.csproj">
+      <Project>{20FB7813-75E1-4751-A80D-79B861825D94}</Project>
+      <Name>nunitlite-android</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="AssertCountFixture.cs" />
+    <Compile Include="AssertFailFixture.cs" />
+    <Compile Include="AssertIgnoreData.cs" />
+    <Compile Include="AttributeInheritanceData.cs" />
+    <Compile Include="CategoryAttributeData.cs" />
+    <Compile Include="CultureAttributeData.cs" />
+    <Compile Include="DatapointFixture.cs" />
+    <Compile Include="DescriptionFixture.cs" />
+    <Compile Include="FixtureSetUpTearDownData.cs" />
+    <Compile Include="MaxTimeFixture.cs" />
+    <Compile Include="ParameterizedTestFixture.cs" />
+    <Compile Include="PropertyAttributeTests.cs" />
+    <Compile Include="RepeatedTestFixture.cs" />
+    <Compile Include="SetUpData.cs" />
+    <Compile Include="SetUpFixtureData.cs" />
+    <Compile Include="TestCaseAttributeFixture.cs" />
+    <Compile Include="TestCaseSourceAttributeFixture.cs" />
+    <Compile Include="TestContextData.cs" />
+    <Compile Include="TestFixtureData.cs" />
+    <Compile Include="TestMethodSignatureFixture.cs" />
+    <Compile Include="TheoryFixture.cs" />
+    <Compile Include="TimeoutFixture.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="nunitlite.testdata.build" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+</Project>

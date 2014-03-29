@@ -380,7 +380,7 @@ namespace NUnit.Framework.Internal
         }
 #endif
 
-#if !NETCF && !SILVERLIGHT
+#if !NETCF && !SILVERLIGHT && !ANDROID
         /// <summary>
         /// Saves and restores the CurrentDirectory
         /// </summary>
@@ -556,7 +556,7 @@ namespace NUnit.Framework.Internal
             Thread.CurrentThread.CurrentUICulture = this.currentUICulture;
 #endif
 
-#if !NETCF && !SILVERLIGHT
+#if !NETCF && !SILVERLIGHT && !ANDROID
             // TODO: We should probably remove this feature, since
             // it potentially impacts all threads.
             Environment.CurrentDirectory = this.currentDirectory;

@@ -84,6 +84,10 @@
     <ProjectSuffix>sl-5.0</ProjectSuffix>
     <Runtime>silverlight</Runtime>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Framework)'=='android'">
+    <ProjectSuffix>android</ProjectSuffix>
+    <Runtime>mono</Runtime>
+  </PropertyGroup>
 
   <PropertyGroup Label="Properties for running tests">
     <TestOptions Condition="'$(TestOptions)' == ''"></TestOptions>
@@ -135,7 +139,7 @@
     <Delete Files="$(ProjectSrcDir)\GeneratedAssemblyInfo.cs" Condition="Exists('$(ProjectSrcDir)\GeneratedAssemblyInfo.cs')" />
   </Target>
   <Target Name="Build">
-    <CallTarget Targets="_BuildNUnit" Condition="'$(Runtime)' != 'netcf' And '$(Runtime)' != 'silverlight'" />
+    <CallTarget Targets="_BuildNUnit" Condition="'$(Runtime)' != 'netcf' And '$(Runtime)' != 'silverlight' And '$(Runtime)' != 'android'" />
     <CallTarget Targets="_BuildNUnitLite" />
   </Target>
   <ItemGroup>
@@ -237,6 +241,7 @@
     <SupportedFrameworks Include="netcf-3.5"></SupportedFrameworks>
     <SupportedFrameworks Include="netcf-2.0"></SupportedFrameworks>
     <SupportedFrameworks Include="silverlight-5.0"></SupportedFrameworks>
+    <SupportedFrameworks Include="android"></SupportedFrameworks>
   </ItemGroup>
   <Target Name="BuildAll">
     <MSBuild Projects="$(MSBuildProjectFullPath)" Targets="Build" Properties="Framework=%(SupportedFrameworks.Identity)" ContinueOnError="true"></MSBuild>

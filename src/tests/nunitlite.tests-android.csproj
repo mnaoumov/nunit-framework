@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E63117D5-3AE6-4668-9377-947ED0B4CCA9}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>NUnit.Framework.Tests</RootNamespace>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AssemblyName>nunitlite.tests-android</AssemblyName>
+    <TargetFrameworkVersion>v2.3</TargetFrameworkVersion>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\Debug\android\</OutputPath>
+    <DefineConstants>DEBUG;__MOBILE__;__ANDROID__;TRACE;ANDROID;NUNITLITE;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\Release\android\</OutputPath>
+    <DefineConstants>__MOBILE__;__ANDROID__;TRACE;ANDROID;NUNITLITE;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Api\ResultStateTests.cs" />
+    <Compile Include="Assertions\ArrayEqualsFailureMessageFixture.cs" />
+    <Compile Include="Assertions\ArrayEqualsFixture.cs" />
+    <Compile Include="Assertions\ArrayNotEqualFixture.cs" />
+    <Compile Include="Assertions\AssertEqualsTests.cs" />
+    <Compile Include="Assertions\AssertFailTests.cs" />
+    <Compile Include="Assertions\AssertIgnoreTests.cs" />
+    <Compile Include="Assertions\AssertInconclusiveTests.cs" />
+    <Compile Include="Assertions\AssertPassTests.cs" />
+    <Compile Include="Assertions\AssertThatTests.cs" />
+    <Compile Include="Assertions\AssertThrowsTests.cs" />
+    <Compile Include="Assertions\AssumeThatTests.cs" />
+    <Compile Include="Assertions\AsyncThrowsTests.cs" />
+    <Compile Include="Assertions\ConditionAssertTests.cs" />
+    <Compile Include="Assertions\NotEqualFixture.cs" />
+    <Compile Include="Assertions\NotSameFixture.cs" />
+    <Compile Include="Assertions\SameFixture.cs" />
+    <Compile Include="Attributes\ApplyToContextTests.cs" />
+    <Compile Include="Attributes\ApplyToTestTests.cs" />
+    <Compile Include="Attributes\AttributeInheritanceTests.cs" />
+    <Compile Include="Attributes\CategoryAttributeTests.cs" />
+    <Compile Include="Attributes\CombinatorialTests.cs" />
+    <Compile Include="Attributes\DatapointTests.cs" />
+    <Compile Include="Attributes\DerivedPropertyAttributeTests.cs" />
+    <Compile Include="Attributes\DescriptionTests.cs" />
+    <Compile Include="Attributes\FixtureSetUpTearDownTests.cs" />
+    <Compile Include="Attributes\MaxTimeTests.cs" />
+    <Compile Include="Attributes\PairwiseTests.cs" />
+    <Compile Include="Attributes\ParameterizedTestFixtureTests.cs" />
+    <Compile Include="Attributes\PropertyAttributeTests.cs" />
+    <Compile Include="Attributes\RepeatedTestTests.cs" />
+    <Compile Include="Attributes\SetCultureAttributeTests.cs" />
+    <Compile Include="Attributes\TestCaseAttributeTests.cs" />
+    <Compile Include="Attributes\TestCaseSourceTests.cs" />
+    <Compile Include="Attributes\TestDummy.cs" />
+    <Compile Include="Attributes\TestExpectedResult.cs" />
+    <Compile Include="Attributes\TestFixtureAttributeTests.cs" />
+    <Compile Include="Attributes\TestMethodBuilderTests.cs" />
+    <Compile Include="Attributes\TheoryTests.cs" />
+    <Compile Include="Attributes\TimeoutTests.cs" />
+    <Compile Include="Attributes\ValuesAttributeTests.cs" />
+    <Compile Include="Attributes\ValueSourceTests.cs" />
+    <Compile Include="Constraints\AllItemsConstraintTests.cs" />
+    <Compile Include="Constraints\AndConstraintTests.cs" />
+    <Compile Include="Constraints\AssignableFromConstraintTests.cs" />
+    <Compile Include="Constraints\AssignableToConstraintTests.cs" />
+    <Compile Include="Constraints\AttributeExistsConstraintTests.cs" />
+    <Compile Include="Constraints\BasicConstraintTests.cs" />
+    <Compile Include="Constraints\BinarySerializableTest.cs" />
+    <Compile Include="Constraints\CollectionContainsConstraintTests.cs" />
+    <Compile Include="Constraints\CollectionEqualsTests.cs" />
+    <Compile Include="Constraints\CollectionEquivalentConstraintTests.cs" />
+    <Compile Include="Constraints\CollectionOrderedConstraintTests.cs" />
+    <Compile Include="Constraints\CollectionSubsetConstraintTests.cs" />
+    <Compile Include="Constraints\ComparisonConstraintTestBase.cs" />
+    <Compile Include="Constraints\ConstraintTestBase.cs" />
+    <Compile Include="Constraints\DelayedConstraintTests.cs" />
+    <Compile Include="Constraints\EmptyConstraintTest.cs" />
+    <Compile Include="Constraints\EndsWithConstraintTests.cs" />
+    <Compile Include="Constraints\EqualConstraintTests.cs" />
+    <Compile Include="Constraints\EqualTest.cs" />
+    <Compile Include="Constraints\ExactCountConstraintTests.cs" />
+    <Compile Include="Constraints\ExactTypeConstraintTests.cs" />
+    <Compile Include="Constraints\FloatingPointNumericsTest.cs" />
+    <Compile Include="Constraints\GreaterThanConstraintTests.cs" />
+    <Compile Include="Constraints\GreaterThanOrEqualConstraintTests.cs" />
+    <Compile Include="Constraints\InstanceOfTypeConstraintTests.cs" />
+    <Compile Include="Constraints\LessThanConstraintTests.cs" />
+    <Compile Include="Constraints\LessThanOrEqualConstraintTests.cs" />
+    <Compile Include="Constraints\MsgUtilTests.cs" />
+    <Compile Include="Constraints\NotConstraintTests.cs" />
+    <Compile Include="Constraints\NumericsTest.cs" />
+    <Compile Include="Constraints\NUnitComparerTests.cs" />
+    <Compile Include="Constraints\NUnitEqualityComparerTests.cs" />
+    <Compile Include="Constraints\OrConstraintTests.cs" />
+    <Compile Include="Constraints\PathConstraintTests.cs" />
+    <Compile Include="Constraints\PredicateConstraintTests.cs" />
+    <Compile Include="Constraints\PropertyTests.cs" />
+    <Compile Include="Constraints\RangeConstraintTests.cs" />
+    <Compile Include="Constraints\RangeTests.cs" />
+    <Compile Include="Constraints\ReusableConstraintTests.cs" />
+    <Compile Include="Constraints\SameAsTest.cs" />
+    <Compile Include="Constraints\StartsWithConstraintTests.cs" />
+    <Compile Include="Constraints\StringConstraintTest.cs" />
+    <Compile Include="Constraints\SubstringConstraintTests.cs" />
+    <Compile Include="Constraints\ThrowsConstraintTests.cs" />
+    <Compile Include="Constraints\ThrowsExceptionConstraintTests.cs" />
+    <Compile Include="Constraints\ToleranceTests.cs" />
+    <Compile Include="Constraints\ToStringTests.cs" />
+    <Compile Include="Constraints\UniqueItemsConstraintTests.cs" />
+    <Compile Include="Constraints\XmlSerializableTest.cs" />
+    <Compile Include="Internal\AssemblyHelperTests.cs" />
+    <Compile Include="Internal\CultureSettingAndDetectionTests.cs" />
+    <Compile Include="Internal\DeduceTypeArgsFromArgs.cs" />
+    <Compile Include="Internal\GenericTestFixtureTests.cs" />
+    <Compile Include="Internal\GenericTestMethodTests.cs" />
+    <Compile Include="Internal\PlatformDetectionTests.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internal\PropertyBagTests.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internal\RandomGeneratorTests.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internal\RandomizerTests.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internal\RuntimeFrameworkTests.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internal\SetUpFixtureTests.cs" />
+    <Compile Include="Internal\SetUpTearDownTests.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internal\SimpleGenericMethods.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internal\StackFilterTests.cs" />
+    <Compile Include="Internal\TestExecutionContextTests.cs" />
+    <Compile Include="Internal\TestFilterTests.cs" />
+    <Compile Include="Internal\TestFixtureTests.cs" />
+    <Compile Include="Internal\TestMethodSignatureTests.cs" />
+    <Compile Include="Internal\TestResultTests.cs" />
+    <Compile Include="Internal\TestXmlTests.cs" />
+    <Compile Include="Internal\TextMessageWriterTests.cs" />
+    <Compile Include="Internal\TypeParameterUsedWithTestMethod.cs" />
+    <Compile Include="Runner\CommandLineOptionTests.cs" />
+    <Compile Include="Runner\NUnit2XmlOutputWriterTests.cs" />
+    <Compile Include="Syntax\AfterTests.cs" />
+    <Compile Include="Syntax\ArbitraryConstraintMatching.cs" />
+    <Compile Include="Syntax\CollectionTests.cs" />
+    <Compile Include="Syntax\ComparisonTests.cs" />
+    <Compile Include="Syntax\EqualityTests.cs" />
+    <Compile Include="Syntax\OperatorOverrides.cs" />
+    <Compile Include="Syntax\OperatorTests.cs" />
+    <Compile Include="Syntax\PathConstraintTests.cs" />
+    <Compile Include="Syntax\PropertyTests.cs" />
+    <Compile Include="Syntax\SerializableConstraints.cs" />
+    <Compile Include="Syntax\SimpleConstraints.cs" />
+    <Compile Include="Syntax\StringConstraints.cs" />
+    <Compile Include="Syntax\SyntaxTest.cs" />
+    <Compile Include="Syntax\ThrowsTests.cs" />
+    <Compile Include="Syntax\TypeConstraints.cs" />
+    <Compile Include="TestUtilities\Comparers\AlwaysEqualComparer.cs" />
+    <Compile Include="TestUtilities\Collections\SimpleObjectCollection.cs" />
+    <Compile Include="TestUtilities\Comparers\GenericComparer.cs" />
+    <Compile Include="TestUtilities\Comparers\GenericComparison.cs" />
+    <Compile Include="TestUtilities\Comparers\GenericEqualityComparer.cs" />
+    <Compile Include="TestUtilities\Comparers\ObjectComparer.cs" />
+    <Compile Include="TestUtilities\Comparers\ObjectEqualityComparer.cs" />
+    <Compile Include="TestUtilities\ResultSummary.cs" />
+    <Compile Include="TestUtilities\TestAssert.cs" />
+    <Compile Include="TestUtilities\TestBuilder.cs" />
+    <Compile Include="TestUtilities\TestComparer.cs" />
+    <Compile Include="TestUtilities\TestDelegates.cs" />
+    <Compile Include="TestUtilities\TestFinder.cs" />
+    <Compile Include="TestUtilities\UniqueValues.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+    <None Include="Properties\AndroidManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Icon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\testdata\nunitlite.testdata-android.csproj">
+      <Project>{D1024226-2230-4E1E-B978-30D3D761726B}</Project>
+      <Name>nunitlite.testdata-android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\framework\nunitlite-android.csproj">
+      <Project>{20FB7813-75E1-4751-A80D-79B861825D94}</Project>
+      <Name>nunitlite-android</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

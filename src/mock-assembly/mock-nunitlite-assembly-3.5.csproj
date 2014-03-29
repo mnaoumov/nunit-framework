@@ -31,8 +31,6 @@
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE;DEBUG;NUNITLITE</DefineConstants>
-    <DocumentationFile>
-    </DocumentationFile>
     <DebugSymbols>true</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <Optimize>false</Optimize>
@@ -48,8 +46,6 @@
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE;NUNITLITE</DefineConstants>
-    <DocumentationFile>
-    </DocumentationFile>
     <FileAlignment>4096</FileAlignment>
     <Optimize>true</Optimize>
     <RegisterForComInterop>false</RegisterForComInterop>
@@ -81,7 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\framework\nunitlite-3.5.csproj">
-      <Project>{8c09bb92-c5f6-496c-bee7-bb16677823d6}</Project>
+      <Project>{8C09BB92-C5F6-496C-BEE7-BB16677823D6}</Project>
       <Name>nunitlite-3.5</Name>
     </ProjectReference>
   </ItemGroup>
