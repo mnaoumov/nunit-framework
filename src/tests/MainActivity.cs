@@ -3,9 +3,9 @@ using Android.App;
 using Android.OS;
 using NUnit.Framework;
 
-namespace nunitlite.testsandroid
+namespace NUnitLite.Tests
 {
-	[Activity (Label = "nunitlite.tests-android", MainLauncher = true)]
+    [Activity(Label = "NUnitLite.Tests", MainLauncher = true)]
 	public class MainActivity : TestSuiteActivity
 	{
 		protected override void OnCreate (Bundle bundle)

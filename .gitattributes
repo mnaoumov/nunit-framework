@@ -9,3 +9,4 @@
 # Resharper DotSettings files are in Unix Format
 *.DotSettings text eol=lf
 *.axml text eol=lf
+AndroidManifest.xml eol=lf

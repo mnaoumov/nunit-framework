@@ -50,6 +50,9 @@ namespace NUnit.Framework.Tests
 			// aapt resource value: 0x7f020000
 			public const int Icon = 2130837504;
 			
+			// aapt resource value: 0x7f020001
+			public const int monoandroidsplash = 2130837505;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -63,8 +66,8 @@ namespace NUnit.Framework.Tests
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int testOutput = 2131034112;
+			// aapt resource value: 0x7f060000
+			public const int testOutput = 2131099648;
 			
 			static Id()
 			{
@@ -104,6 +107,22 @@ namespace NUnit.Framework.Tests
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f050000
+			public const int Mono_Android_Theme_Splash = 2131034112;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
 			{
 			}
 		}

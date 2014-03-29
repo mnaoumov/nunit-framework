@@ -21,16 +21,11 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ***********************************************************************
 
-using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Threading;
-using System.Text;
 using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 using System.Reflection;
 using NUnit.Framework.Api;
@@ -47,7 +42,7 @@ namespace NUnit.Framework
 	[Activity (Label = "TestSuiteActivity")]			
 	public class TestSuiteActivity : Activity
 	{
-		private ITestAssemblyRunner runner;
+		private readonly ITestAssemblyRunner _runner = new DefaultTestAssemblyRunner(new DefaultTestAssemblyBuilder());
 		private TextWriter writer;
 
 		/// <summary>
@@ -56,7 +51,7 @@ namespace NUnit.Framework
 		/// <param name="assembly">Assembly.</param>
 		public void AddTest (Assembly assembly)
 		{
-			runner.Load (assembly, new Dictionary<string, string> ());
+			_runner.Load (assembly, new Dictionary<string, string> ());
 		}
 
 		protected override void OnCreate (Bundle bundle)
@@ -64,32 +59,30 @@ namespace NUnit.Framework
 			base.OnCreate (bundle);
 			SetContentView (Resource.Layout.TestSuiteActivity);
 
-			this.runner = new DefaultTestAssemblyRunner(new DefaultTestAssemblyBuilder());
-			this.writer = new TextViewWriter ((TextView)this.FindViewById (Resource.Id.testOutput));
+			writer = new TextViewWriter ((TextView)FindViewById (Resource.Id.testOutput));
 		}
 
 		protected override void OnResume ()
 		{
 			base.OnResume ();
 
-			TextUI.WriteHeader(this.writer);
-			TextUI.WriteRuntimeEnvironment(this.writer);
+			TextUI.WriteHeader(writer);
+			TextUI.WriteRuntimeEnvironment(writer);
 
 			ThreadPool.QueueUserWorkItem (delegate
 			{
 				ExecuteTests ();
 			});
-			//Dispatcher.BeginInvoke(() => ExecuteTests());
 		}
 
 		private void ExecuteTests()
 		{
-			ITestResult result = runner.Run (TestListener.NULL, TestFilter.Empty);
-			ResultReporter reporter = new ResultReporter (result, writer);
+			ITestResult result = _runner.Run (TestListener.NULL, TestFilter.Empty);
+			var reporter = new ResultReporter (result, writer);
 
 			reporter.ReportResults ();
 
-			ResultSummary summary = reporter.Summary;
+			//ResultSummary summary = reporter.Summary;
 
 //			this.Total.Text = summary.TestCount.ToString();
 //			this.Failures.Text = summary.FailureCount.ToString();

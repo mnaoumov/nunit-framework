@@ -21,6 +21,7 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ***********************************************************************
 
+using Android.App;
 #if ANDROID
 using System;
 using System.Diagnostics;
@@ -37,13 +38,13 @@ namespace NUnitLite.Runner.Android
 	{
 		private TextView textView;
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="TextViewWriter"/> class.
-		/// </summary>
-		/// <param name="textView">The text view.</param>
-		public TextViewWriter (TextView textView)
-		{
-			this.textView = textView;
+	    /// <summary>
+	    /// Initializes a new instance of the <see cref="TextViewWriter"/> class.
+	    /// </summary>
+	    /// <param name="textView">The text view.</param>
+	    public TextViewWriter(TextView textView)
+	    {
+	        this.textView = textView;
 		}
 
 		/// <summary>
@@ -57,8 +58,8 @@ namespace NUnitLite.Runner.Android
 		/// An I/O error occurs.
 		/// </exception>
 		public override void Write (char value)
-		{
-			textView.Text += value;
+        {
+            Application.SynchronizationContext.Post(_ => { textView.Text += value; }, null);
 		}
 
 		/// <summary>
@@ -72,8 +73,8 @@ namespace NUnitLite.Runner.Android
 		/// An I/O error occurs.
 		/// </exception>
 		public override void Write (string value)
-		{
-			textView.Append (value);
+        {
+            Application.SynchronizationContext.Post(_ => textView.Append(value), null);
 		}
 
 		/// <summary>
@@ -87,10 +88,12 @@ namespace NUnitLite.Runner.Android
 		/// An I/O error occurs.
 		/// </exception>
 		public override void WriteLine (string value)
-		{
-			textView.Append (value);
-			textView.Append (Environment.NewLine);
-			Debug.WriteLine (value);
+        {
+            Application.SynchronizationContext.Post(_ =>
+            {
+                textView.Append(value);
+                textView.Append(Environment.NewLine);
+            }, null);
 		}
 
 		/// <summary>

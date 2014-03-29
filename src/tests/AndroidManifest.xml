@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="nunitlite.tests_android">
+	<uses-sdk />
+	<application android:label="nunitlite.tests-android"></application>
+</manifest>
