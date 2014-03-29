@@ -348,15 +348,21 @@
     <Compile Include="Constraints\ExactCountConstraint.cs" />
     <Compile Include="Constraints\Operators\ExactCountOperator.cs" />
     <Compile Include="Constraints\ExceptionTypeConstraint.cs" />
+    <Compile Include="Runner\Android\TestSuiteActivity.cs" />
+    <Compile Include="Runner\Android\AndroidRunner.cs" />
+    <Compile Include="Runner\Android\TextViewWriter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
+    <AndroidResource Include="Resources\layout\TestSuiteActivity.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+    <Folder Include="Runner\Android\" />
+    <Folder Include="Resources\layout\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Attributes\AttributeHierarchy.txt" />

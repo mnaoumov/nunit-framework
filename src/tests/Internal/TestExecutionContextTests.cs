@@ -151,7 +151,7 @@ namespace NUnit.Framework.Internal
         }
 #endif
 
-#if !NETCF && !SILVERLIGHT
+#if !NETCF && !SILVERLIGHT && !ANDROID
         [Test]
         public void FixtureSetUpContextReflectsCurrentDirectory()
         {
@@ -205,7 +205,7 @@ namespace NUnit.Framework.Internal
         }
 #endif
 
-#if !NETCF && !SILVERLIGHT
+#if !NETCF && !SILVERLIGHT && !ANDROID
         [Test]
         public void SetUpContextReflectsCurrentDirectory()
         {
@@ -259,7 +259,7 @@ namespace NUnit.Framework.Internal
         }
 #endif
 
-#if !NETCF && !SILVERLIGHT
+#if !NETCF && !SILVERLIGHT && !ANDROID
         [Test]
         public void TestContextReflectsCurrentDirectory()
         {
@@ -271,9 +271,7 @@ namespace NUnit.Framework.Internal
         {
             Assert.That(TestExecutionContext.CurrentContext.CurrentPrincipal, Is.EqualTo(Thread.CurrentPrincipal));
         }
-#endif
 
-#if !NETCF && !SILVERLIGHT
         [Test]
         public void SetAndRestoreCurrentDirectory()
         {

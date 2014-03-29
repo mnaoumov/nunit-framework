@@ -26,6 +26,8 @@ namespace NUnit.Framework.Tests
 		
 		public static void UpdateIdValues()
 		{
+			global::NUnit.Resource.Id.testOutput = global::NUnit.Framework.Tests.Resource.Id.testOutput;
+			global::NUnit.Resource.Layout.TestSuiteActivity = global::NUnit.Framework.Tests.Resource.Layout.TestSuiteActivity;
 			global::NUnit.Resource.String.library_name = global::NUnit.Framework.Tests.Resource.String.library_name;
 		}
 		
@@ -58,11 +60,43 @@ namespace NUnit.Framework.Tests
 			}
 		}
 		
-		public partial class String
+		public partial class Id
+		{
+			
+			// aapt resource value: 0x7f050000
+			public const int testOutput = 2131034112;
+			
+			static Id()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Id()
+			{
+			}
+		}
+		
+		public partial class Layout
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int library_name = 2130903040;
+			public const int TestSuiteActivity = 2130903040;
+			
+			static Layout()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Layout()
+			{
+			}
+		}
+		
+		public partial class String
+		{
+			
+			// aapt resource value: 0x7f040000
+			public const int library_name = 2130968576;
 			
 			static String()
 			{
