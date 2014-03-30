@@ -48,9 +48,7 @@ namespace NUnit.Framework.Internal
         /// <summary>Silverlight</summary>
         Silverlight,
         /// <summary>MonoTouch</summary>
-		MonoTouch,
-		/// <summary>Mono on Android</summary>
-		MonoDroid
+		MonoTouch
     }
 
     /// <summary>
@@ -180,10 +178,6 @@ namespace NUnit.Framework.Internal
                     currentFramework = new RuntimeFramework(
                         RuntimeType.Silverlight,
                         new Version(Environment.Version.Major, Environment.Version.Minor));
-#elif ANDROID
-					currentFramework = new RuntimeFramework(
-						RuntimeType.MonoDroid,
-						new Version(Environment.Version.Major, Environment.Version.Minor));
 #else
                     Type monoRuntimeType = Type.GetType("Mono.Runtime", false);
                     Type monoTouchType = Type.GetType("MonoTouch.UIKit.UIApplicationDelegate,monotouch");
@@ -214,6 +208,7 @@ namespace NUnit.Framework.Internal
                             break;
                         }
                     }
+#if !ANDROID
                     else /* It's windows */
                     if (major == 2)
                     {
@@ -236,6 +231,7 @@ namespace NUnit.Framework.Internal
                             }
                         }
                     }
+#endif
                     else if (major == 4 && Type.GetType("System.Reflection.AssemblyMetadataAttribute") != null)
                     {
                         minor = 5;
