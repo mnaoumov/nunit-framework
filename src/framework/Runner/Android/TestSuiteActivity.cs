@@ -26,6 +26,7 @@ using System.Collections.Generic;
 using System.Threading;
 using Android.App;
 using Android.OS;
+using Android.Text.Method;
 using Android.Widget;
 using System.Reflection;
 using NUnit.Framework.Api;
@@ -43,7 +44,8 @@ namespace NUnit.Framework
 	public class TestSuiteActivity : Activity
 	{
 		private readonly ITestAssemblyRunner _runner = new DefaultTestAssemblyRunner(new DefaultTestAssemblyBuilder());
-		private TextWriter writer;
+		private TextWriter _writer;
+	    private TextView _textView;
 
 		/// <summary>
 		/// Adds an assembly to be tested
@@ -59,15 +61,19 @@ namespace NUnit.Framework
 			base.OnCreate (bundle);
 			SetContentView (Resource.Layout.TestSuiteActivity);
 
-			writer = new TextViewWriter ((TextView)FindViewById (Resource.Id.testOutput));
+		    _textView = (TextView)FindViewById(Resource.Id.testOutput);
+            _textView.MovementMethod = new ScrollingMovementMethod();
+			_writer = new TextViewWriter (_textView);
 		}
 
 		protected override void OnResume ()
 		{
 			base.OnResume ();
 
-			TextUI.WriteHeader(writer);
-			TextUI.WriteRuntimeEnvironment(writer);
+		    _textView.Text = string.Empty;
+
+			TextUI.WriteHeader(_writer);
+			TextUI.WriteRuntimeEnvironment(_writer);
 
 			ThreadPool.QueueUserWorkItem (delegate
 			{
@@ -78,7 +84,7 @@ namespace NUnit.Framework
 		private void ExecuteTests()
 		{
 			ITestResult result = _runner.Run (TestListener.NULL, TestFilter.Empty);
-			var reporter = new ResultReporter (result, writer);
+			var reporter = new ResultReporter (result, _writer);
 
 			reporter.ReportResults ();
 
