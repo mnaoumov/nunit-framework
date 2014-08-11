@@ -118,7 +118,7 @@ namespace NUnit.Framework.Internal
             if (ResultState == null)
                 Assert.Ignore("Test ignored because ResultState is not set");
 
-            testResult.SetResult(ResultState, "Invalid Characters: \u0001\u0008\u000b\u001f\ud800; Valid Characters: \u0009\u000a\u000d\u0020\ufffd\ud800\udc00");
+            testResult.SetResult(ResultState, "Invalid Characters: \u0000\u0001\u0008\u000b\u001f\ud800; Valid Characters: \u0009\u000d\u000a\u0020\ufffd\ud83d\ude48");
             XmlNode testNode = testResult.ToXml(true);
             XmlNode reasonNode = testNode.FindDescendant(ReasonNodeName);
             
@@ -127,7 +127,7 @@ namespace NUnit.Framework.Internal
             XmlNode messageNode = reasonNode.FindDescendant("message");
             
             Assert.That(messageNode, Is.Not.Null, "No <message> element found");
-            Assert.That(messageNode.TextContent, Is.EqualTo("Invalid Characters: \\u0001\\u0008\\u000b\\u001f\\ud800; Valid Characters: \u0009\u000a\u000d\u0020\ufffd\ud800\udc00"));
+            Assert.That(messageNode.TextContent, Is.EqualTo("Invalid Characters: \\u0000\\u0001\\u0008\\u000b\\u001f\\ud800; Valid Characters: \u0009\u000d\u000a\u0020\ufffd\ud83d\ude48"));
         }
 
         protected virtual ResultState ResultState
